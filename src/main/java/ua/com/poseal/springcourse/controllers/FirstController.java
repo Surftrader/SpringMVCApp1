@@ -2,16 +2,14 @@ package ua.com.poseal.springcourse.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FirstController {
 
     @GetMapping("/hello")
-    public String helloPage(HttpServletRequest request) {
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
+    public String helloPage(@RequestParam("name") String name,
+                            @RequestParam("surname") String surname) {
 
         System.out.println("Hello, " + name + " " + surname);
         return "first/hello";
